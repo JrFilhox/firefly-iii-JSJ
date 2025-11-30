@@ -78,6 +78,7 @@ use TwigBridge\ServiceProvider;
 
 return [
     'name'            => envNonEmpty('APP_NAME', 'Firefly III'),
+    'jsj_tagline'     => 'Sistema de controle financeiro interno da JSJ Soluções e Participações LTDA (JSJ Corp), baseado em Firefly III.',
     'env'             => envNonEmpty('APP_ENV', 'production'),
     'debug'           => env('APP_DEBUG', false),
     'url'             => envNonEmpty('APP_URL', 'http://localhost'),
