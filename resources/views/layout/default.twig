@@ -13,6 +13,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="color-scheme" content="light dark">
 
+    {% set appBrand = config('app.name') %}
+    {% set appBaseBrand = appBrand ?: 'Firefly III' %}
+    {% set appSignature = appBaseBrand ~ ' · Firefly III' %}
+
     <title>
         {% if pageTitle %}
             {{ pageTitle }} »
@@ -20,13 +24,14 @@
         {% if subTitle and not pageTitle %}
             {{ subTitle }} »
         {% endif %}
-        {% if title != "Firefly III" %}
+        {% if title != appBaseBrand %}
             {{ title }} »
         {% endif %}
 
-        Firefly III
+        {{ appSignature }}
 
     </title>
+    <meta name="description" content="{{ config('app.jsj_tagline') }}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     {# CSS things #}
     <link href="v1/lib/bs/css/bootstrap.min.css?v={{ FF_BUILD_TIME }}" rel="stylesheet" type="text/css"
@@ -102,7 +107,7 @@
             {# mini logo for sidebar mini 50x50 pixels #}
             <span class="logo-mini">FF</span>
             {# logo for regular state and mobile devices #}
-            <span class="logo-lg"><strong>Firefly</strong>III</span>
+            <span class="logo-lg"><strong>{{ appBaseBrand }}</strong></span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
